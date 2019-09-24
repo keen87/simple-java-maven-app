@@ -14,6 +14,7 @@ pipeline {
         
         stage('shell') {
             steps {
+                sh 'cat /etc/os-release'
                 sh 'echo $PWD'
                 sh 'ls'
                 sh 'echo abc > abc'
