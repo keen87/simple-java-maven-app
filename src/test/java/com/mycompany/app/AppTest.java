@@ -29,7 +29,7 @@ public class AppTest
         }
     }
 	
-    @Test
+    //@Test
     public void failOnPurpose() {
 		fail("fail on purpose.");
     }
