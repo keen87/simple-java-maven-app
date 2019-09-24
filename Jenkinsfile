@@ -23,11 +23,13 @@ pipeline {
             }
         }
         stage('Test2') { 
-            steps {
-                sh 'mvn test' 
-				input message: 'Finished testing? (Click "Proceed" to continue)'
-            }
             parallel {
+               stage("Test2.2") {
+                   steps {
+                        sh 'mvn test' 
+        				input message: 'Finished testing? (Click "Proceed" to continue)'
+                   }
+               }
                stage("Echo1") {
                    steps {
                        echo "echo111";
