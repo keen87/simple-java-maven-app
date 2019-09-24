@@ -14,16 +14,19 @@ pipeline {
         
         stage('shell') {
             steps {
-                sh 'echo $pwd'
+                sh 'echo $PWD'
                 sh 'ls'
                 sh 'echo abc > abc'
                 sh 'ls'
+                sh 'cat abc'
             }
         } 
         
         stage('Test') { 
             steps {
-                sh 'mvn test' 
+                sh 'ls'
+                sh 'mvn test'
+                sh 'ls' 
             }
             post {
                 always {
