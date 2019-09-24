@@ -19,6 +19,7 @@ pipeline {
                 sh 'echo abc > abc'
                 sh 'ls'
                 sh 'cat abc'
+                sh 'cd ../.. & ls'
             }
         } 
         
