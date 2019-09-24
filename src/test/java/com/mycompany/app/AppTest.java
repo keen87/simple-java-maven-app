@@ -30,8 +30,8 @@ public class AppTest
     }
 	
     @Test
-    public void fail() {
-		fail("Fail on uprpose.");
+    public void failOnPurpose() {
+		fail("fail on purpose.");
     }
 
     @Test
