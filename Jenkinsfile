@@ -32,14 +32,14 @@ pipeline {
                     junit 'target/surefire-reports/*.xml' 
                 }
             }
-        }
-        parallel {
-           stage("Echo1") {
-               echo "echo111";
-           }
-           stage("Echo2") {
-               echo "echo222";
-           }
+            parallel {
+               stage("Echo1") {
+                   echo "echo111";
+               }
+               stage("Echo2") {
+                   echo "echo222";
+               }
+            }
         }
 		stage('Deliver') { 
             steps {
