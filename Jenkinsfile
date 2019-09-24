@@ -39,12 +39,6 @@ pipeline {
         stage('Test2') { 
             parallel {
                stage("Echo1") {
-                   agent {
-                        docker {
-                            image 'tadaszi/maven' 
-                            args '-v /C/Users/tadaszi/.m2:/root/.m2' 
-                        }
-                   }
                    steps {
                        sh "echo echo1 > echo1";
                        sh "echo $pwd";
@@ -53,12 +47,6 @@ pipeline {
                    }
                }
                stage("Echo2") {
-                   agent {
-                        docker {
-                            image 'tadaszi/maven' 
-                            args '-v /C/Users/tadaszi/.m2:/root/.m2' 
-                        }
-                   }
                    steps {
                        sh "echo echo2 > echo2";
                        sh "echo echo222";
