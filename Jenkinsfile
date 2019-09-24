@@ -27,18 +27,22 @@ pipeline {
                 sh 'mvn test' 
 				input message: 'Finished testing? (Click "Proceed" to continue)'
             }
+            parallel {
+               stage("Echo1") {
+                   steps {
+                       echo "echo111";
+                   }
+               }
+               stage("Echo2") {
+                   steps {
+                       echo "echo222";
+                   }
+               }
+            }
             post {
                 always {
                     junit 'target/surefire-reports/*.xml' 
                 }
-            }
-            parallel {
-               stage("Echo1") {
-                   echo "echo111";
-               }
-               stage("Echo2") {
-                   echo "echo222";
-               }
             }
         }
 		stage('Deliver') { 
