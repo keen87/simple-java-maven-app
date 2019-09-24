@@ -28,6 +28,11 @@ public class AppTest
             fail("Construction failed.");
         }
     }
+	
+    @Test
+    public void fail() {
+		fail("Fail on uprpose.");
+    }
 
     @Test
     public void testAppMain()
