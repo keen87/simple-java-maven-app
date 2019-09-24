@@ -12,6 +12,15 @@ pipeline {
             }
         }
         
+        stage('shell') {
+            steps {
+                sh 'echo $pwd'
+                sh 'ls'
+                sh 'echo abc > abc'
+                sh 'ls'
+            }
+        } 
+        
         stage('Test') { 
             steps {
                 sh 'mvn test' 
@@ -24,15 +33,9 @@ pipeline {
         }
         stage('Test2') { 
             parallel {
-               stage("Test2.2") {
-                   steps {
-                        sh 'mvn test' 
-        				input message: 'Finished testing? (Click "Proceed" to continue)'
-                   }
-               }
                stage("Echo1") {
                    steps {
-                       echo "echo111";
+                       sh "echo $pwd";
                    }
                }
                stage("Echo2") {
