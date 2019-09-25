@@ -46,7 +46,7 @@ pipeline {
             steps {
                 sh 'ls'
                 sh 'mvn test'
-                sh 'ls' 
+                sh 'echo $?' 
             }
             post {
                 always {
