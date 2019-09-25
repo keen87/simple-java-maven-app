@@ -53,21 +53,36 @@ pipeline {
                 }
             }
         }
+        
+        stage('ChoiceOne') {
+            when {
+                choice "One"
+            }
+            steps {
+                sh 'ls'
+            }
+        }
+        
         stage('Test2') { 
             parallel {
                stage("Echo1") {
-                   steps {
-                       sh "echo echo1 > echo1";
-                       sh "echo $pwd";
-                       sh "sleep 10";
-                       sh "ls";
+                   stage("Echo1.1") {
+                       steps {
+                           sh "echo choiceVal=${CHOICE}"
+                           sh "echo choiceVal=${choice}"
+                           sh "ls";
+                       }
+                   }
+                   stage("Echo1.2") {
+                       steps {
+                           sh "ls";
+                       }
                    }
                }
                stage("Echo2") {
                    steps {
                        sh "echo echo2 > echo2";
                        sh "echo echo222";
-                       sh "sleep 10";
                        sh "ls";
                    }
                }
