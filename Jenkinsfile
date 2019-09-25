@@ -15,6 +15,7 @@ pipeline {
         stage('shell') {
             steps {
                 sh 'cat /etc/os-release'
+                sh 'delete nonExistant'
                 sh 'echo $PWD'
                 sh 'ls'
                 sh 'echo abc > abc'
