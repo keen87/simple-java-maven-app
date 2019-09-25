@@ -63,7 +63,7 @@ pipeline {
             }
         }
         
-        stage('ChoiceOne') {
+        stage('ChoiceTwo') {
             when {
                 environment name: 'CHOICE', value: 'Two'
             }
@@ -72,7 +72,7 @@ pipeline {
             }
         }
         
-        stage('ChoiceOne') {
+        stage('ChoiceThree') {
             when {
                 environment name: 'CHOICE', value: 'Three'
             }
