@@ -66,17 +66,8 @@ pipeline {
         stage('Test2') { 
             parallel {
                stage("Echo1") {
-                   stage("Echo1.1") {
-                       steps {
-                           sh "echo choiceVal=${CHOICE}"
-                           sh "echo choiceVal=${choice}"
-                           sh "ls";
-                       }
-                   }
-                   stage("Echo1.2") {
-                       steps {
-                           sh "ls";
-                       }
+                   steps {
+                       sh "ls";
                    }
                }
                stage("Echo2") {
