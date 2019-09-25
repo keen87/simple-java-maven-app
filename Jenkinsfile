@@ -67,7 +67,8 @@ pipeline {
             parallel {
                stage("Echo1") {
                    steps {
-                       sh "ls";
+                       sh "echo choiceVal=${CHOICE}"
+                       sh "echo choiceVal=${choice}"
                    }
                }
                stage("Echo2") {
