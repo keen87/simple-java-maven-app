@@ -111,4 +111,9 @@ pipeline {
             }
         }
     }
+    post {
+        success {
+            archiveArtifacts artifacts: 'pom.xml', fingerprint: true
+        }
+    }
 }
