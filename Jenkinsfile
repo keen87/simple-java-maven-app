@@ -36,10 +36,6 @@ pipeline {
 //                }
 //            }
             steps {
-                input {
-                    message "hihi"
-                }
-
                 sh 'cat /etc/os-release'
                 sh 'echo hello ${PERSON}'
                 sh 'printenv'
