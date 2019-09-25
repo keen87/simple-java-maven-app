@@ -54,6 +54,18 @@ pipeline {
             }
         }
         
+        stage('Test Integration') { 
+            steps {
+                sh 'ls'
+                sh 'mvn test || exit 0'
+            }
+            post {
+                always {
+                    junit testResults: 'target/surefire-reports/*.xml', healthScaleFactor: 0.0
+                }
+            }
+        }
+        
         stage('ChoiceOne') {
             when {
                 environment name: 'CHOICE', value: 'One'
