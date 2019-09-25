@@ -56,7 +56,7 @@ pipeline {
         
         stage('ChoiceOne') {
             when {
-                choice "One"
+                CHOICE "One"
             }
             steps {
                 sh 'ls'
