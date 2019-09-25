@@ -63,6 +63,24 @@ pipeline {
             }
         }
         
+        stage('ChoiceOne') {
+            when {
+                environment name: 'CHOICE', value: 'Two'
+            }
+            steps {
+                sh 'ls'
+            }
+        }
+        
+        stage('ChoiceOne') {
+            when {
+                environment name: 'CHOICE', value: 'Three'
+            }
+            steps {
+                sh 'ls'
+            }
+        }
+        
         stage('Test2') { 
             parallel {
                stage("Echo1") {
