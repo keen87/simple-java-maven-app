@@ -50,10 +50,7 @@ pipeline {
             }
             post {
                 always {
-                    junit {
-                        testResults 'target/surefire-reports/*.xml'
-                        healthScaleFactor 0.0    
-                    }
+                    junit testResults: 'target/surefire-reports/*.xml', healthScaleFactor: 0.0
                 }
             }
         }
