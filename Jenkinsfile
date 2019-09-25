@@ -36,7 +36,7 @@ pipeline {
             }
             steps {
                 sh 'cat /etc/os-release'
-                sh 'printenv'
+                sh 'echo hello ${PERSON}'
                 sh 'printenv'
             }
         } 
