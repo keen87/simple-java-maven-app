@@ -56,7 +56,9 @@ pipeline {
         
         stage('ChoiceOne') {
             when {
-                environment name: 'CHOICE', value: 'ONE' }
+                environment {
+                    name: 'CHOICE', value: 'ONE' 
+                }
             }
             steps {
                 sh 'ls'
