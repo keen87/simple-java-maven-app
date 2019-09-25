@@ -22,19 +22,24 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-                sh 'mvn -B -DskipTests clean package' 
+//                sh 'mvn -B -DskipTests clean package' 
+                sh 'echo build' 
             }
         }
         
         stage('shell') {
-            input {
-                message "Should we continue?"
-                ok "Yes, we should."
-                parameters {
-                    string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
-                }
-            }
+//            input {
+//                message "Should we continue?"
+//                ok "Yes, we should."
+//                parameters {
+//                    string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+//                }
+//            }
             steps {
+                input {
+                    message "hihi"
+                }
+
                 sh 'cat /etc/os-release'
                 sh 'echo hello ${PERSON}'
                 sh 'printenv'
