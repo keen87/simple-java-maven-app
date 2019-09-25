@@ -5,6 +5,9 @@ pipeline {
             args '-v /C/Users/tadaszi/.m2:/root/.m2' 
         }
     }
+    environment {
+        CUSTOM_VAR "CUSTOM_VAR_value" 
+    }
     stages {
         stage('Build') { 
             steps {
@@ -15,13 +18,15 @@ pipeline {
         stage('shell') {
             steps {
                 sh 'cat /etc/os-release'
-                sh 'delete nonExistant'
-                sh 'echo $PWD'
-                sh 'ls'
-                sh 'echo abc > abc'
-                sh 'ls'
-                sh 'cat abc'
-                sh 'cd ../.. & ls'
+                sh 'printenv'
+                input {
+                    message "Should we continue?"
+                    ok "Yes, we should."
+                    parameters {
+                        string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+                    }
+                }
+                sh 'printenv'
             }
         } 
         
