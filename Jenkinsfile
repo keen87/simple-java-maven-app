@@ -27,6 +27,13 @@ pipeline {
             }
         }
         
+        stage('Build') { 
+            steps {
+//                sh 'mvn -B -DskipTests clean package' 
+                sh 'echo build' 
+            }
+        }
+        
         stage('shell') {
 //            input {
 //                message "Should we continue?"
